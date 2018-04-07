@@ -1,0 +1,12 @@
+{
+    "HEADCOUNT": "Headcount",
+    "INCIDENT": "Incident",
+    "NOTIFICATION": "Notification",
+    "REPORT": "Report",
+    "SUPPLY_REQUEST": "Supply Request",
+    "NUDGE": "Nudge",
+    "DRIVER_DISPATCH_ALERT": "Driver Dispatch Alert",
+    "ALERT": "Alert",
+    "DISPATCH": "Dispatch",
+    "DROP_OFF": "Drop Off"
+}
