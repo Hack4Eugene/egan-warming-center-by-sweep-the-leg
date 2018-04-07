@@ -1,0 +1,136 @@
+{
+    "ADMIN": {
+        "HEADCOUNT": [
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ],
+        "INCIDENT": [
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ],
+        "NOTIFICATION": [
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ],
+        "REPORT": [
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ]
+    },
+    "SITE_LEAD": {
+        "SUPPLY_REQUEST": ["CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"],
+        "HEADCOUNT":[
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ], 
+        "INCIDENT":[
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ],
+        "NUDGE":[
+            "READ"
+        ],
+        "DRIVER_DISPATCH_ALERT":[
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ]
+    },
+    "SHIFT_LEAD": {
+        "HEADCOUNT":[
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ], 
+        "INCIDENT":[
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ],
+        "NUDGE":[
+            "READ"
+        ],
+        "ALERT":[
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ]
+    },
+    "DRIVER_COORDINATOR": {
+        "ALERT": [
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ],
+        "HEADCOUNT":[
+            "READ"
+        ],
+        "INCIDENT":[
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ],
+        "DRIVER_LIST":[
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ],
+        "NOTIFICATION":[
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ], 
+        "DISPATCH":[
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ]
+    },
+    "DRIVER": {
+        "HEADCOUNT":[
+            "READ"
+        ],
+        "INCIDENT":[
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ],
+        "NOTIFICATION":[
+            "READ"
+        ],
+        "DROP_OFF": [
+            "CREATE",
+            "READ",
+            "UPDATE",
+            "DELETE"
+        ], 
+        "DISPATCH":[
+            "READ"
+        ]
+    }
+}
