@@ -1,4 +1,5 @@
 export interface Supply {
-  name: string;
+  itemName: string;
+  siteName: string;
   quantity: number;
 }

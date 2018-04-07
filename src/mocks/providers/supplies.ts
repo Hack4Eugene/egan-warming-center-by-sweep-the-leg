@@ -8,6 +8,7 @@ export class Supplies {
 
   defaultItem: any = {
     "name": "Blankets",
+    "siteName": "First Christian",
     "quantity": 10
   };
 
@@ -15,19 +16,23 @@ export class Supplies {
   constructor() {
     this.supplies = [
       {
-        "name": "Blankets",
+        "itemName": "Blankets",
+        "siteName": "First Christian",
         "quantity": 10
       },
       {
-        "name": "Blankets",
+        "itemName": "Blankets",
+        "siteName": "First Christian",
         "quantity": 10
       },
       {
-        "name": "Blankets",
+        "itemName": "Blankets",
+        "siteName": "First Christian",
         "quantity": 10
       },
       {
-        "name": "Blankets",
+        "itemName": "Blankets",
+        "siteName": "First Christian",
         "quantity": 10
       }
     ];
