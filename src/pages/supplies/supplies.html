@@ -9,4 +9,43 @@
 
 <ion-content padding>
 
+  <ion-item *ngFor="let supply of supplies">
+    <ion-label>
+      {{supply.item.brand}} - {{supply.item.product}}
+    </ion-label>
+    <ion-label>
+      {{supply.quantity}}
+    </ion-label>
+    <button item-right clear (click)='removeSupply(supply)'>
+      <ion-icon name="close-circle"></ion-icon>
+    </button>
+  </ion-item>
+
+  <div *ngIf='hasRequest'>
+    <hr>
+  </div>
+
+  <ion-item>
+    <ion-select #Item [placeholder]="'Item'" (ionChange)="selectItem(Item.value)" [(ngModel)]='supply.item'>
+      <ion-option *ngFor="let item of items" [value]="item">{{item.brand}} - {{item.product}}</ion-option>
+    </ion-select>
+    <ion-select #Qty [placeholder]="'Qty'" (ionChange)="selectQuantity(Qty.value)" [(ngModel)]='supply.quantity'>
+      <ion-option *ngFor="let n of qty" [value]="n">{{n}}</ion-option>
+    </ion-select>>
+    <button item-right clear [disabled]='!isItemComplete' (click)='addSupply()'>
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-item>
 </ion-content>
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom">
+    <ion-row>
+      <ion-col>
+        <button ion-button class="col" [disabled]='!hasRequest' (click)='sendRequest()'>{{'SEND' | translate }}</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button class="col" (click)='cancelRequest()'>{{'CANCEL' | translate }}</button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

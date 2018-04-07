@@ -1,5 +1,7 @@
 {
   "BACK_BUTTON_TEXT": "Back",
+  "SEND": "Send",
+  "CANCEL": "Cancel",
 
   "NAME": "Name",
   "EMAIL": "Email",
@@ -31,7 +33,8 @@
 
   "GUESTS_TITLE": "Guests",
   "VOLUNTEERS_TITLE": "Volunteers",
-  "SUPPLIES_TITLE": "Supplies",
 
-  "SITE_MANAGER_HOME_TITLE": "Home"
+  "SITE_MANAGER_HOME_TITLE": "Home",
+
+  "SUPPLIES_TITLE": "Supplies Request"
 }

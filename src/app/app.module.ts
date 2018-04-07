@@ -9,6 +9,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Settings } from '../providers/providers';
 import { Shifts } from '../providers/providers';
 import { Sites } from '../providers/providers';
+import { Items } from '../providers/providers';
+import { SupplyRequests } from '../providers/providers';
 import { Activations } from '../providers/providers';
 import { Auth } from '../providers/providers';
 import { MyApp } from './app.component';
@@ -68,6 +70,8 @@ export function provideSettings(storage: Storage) {
     Auth,
     Shifts,
     Sites,
+    Items,
+    SupplyRequests,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }

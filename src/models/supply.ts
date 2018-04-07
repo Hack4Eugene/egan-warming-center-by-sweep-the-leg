@@ -1,5 +1,7 @@
+import { Item } from "./item";
+
 export interface Supply {
-  itemName: string;
+  item: Item;
   siteName: string;
   quantity: number;
 }
