@@ -1,6 +1,9 @@
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
+    match /sites/{documentId} {
+      allow read, write: if request.auth.uid in resource.data.siteManagers;
+    }
+    match /users/{documentId} {
       allow read, write: if request.auth.uid != null;
     }
   }

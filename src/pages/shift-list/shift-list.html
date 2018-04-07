@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Shifts</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let shift of shiftList | async" (click)="updateShift(shift)">
+      {{shift.name}}
+    </button>
+  </ion-list>
+</ion-content>

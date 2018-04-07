@@ -1,0 +1,75 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{(site$ | async)?.location.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="site$ | async; let site">
+    <button ion-button (click)="openSupplies(site.id)">
+      <ion-icon name="logo-dropbox"></ion-icon>&nbsp;Supplies
+    </button>
+    <button ion-button (click)="openShifts(site.id)">
+      <ion-icon name="clock"></ion-icon>&nbsp;Shifts
+    </button>
+    <hr/>
+    <h1>Guests</h1>
+    <div>
+      <span>
+        <b>Guest Count</b>
+      </span>
+      <span>{{site.currentGuests}}</span>
+    </div>
+    <div>
+      <span>
+        <b>Walk-ins</b>
+      </span>
+      <span>{{site.walkInCount}}</span>
+    </div>
+    <div>
+      <span>
+        <b>Unique Guests</b>
+      </span>
+      <span>{{site.uniqueGuests}}</span>
+    </div>
+    <div>
+      <span>
+        <b>Max Guests</b>
+      </span>
+      <span>{{site.maxGuests}}</span>
+    </div>
+    <h3>Check-in</h3>
+    <button ion-button round outline icon-start (click)="checkInReservation(site)" [disabled]="site.maxGuests <= site.currentGuests">
+      <ion-icon name="person"></ion-icon>Reservation</button>
+    <button ion-button round outline icon-start (click)="checkInWalkIn(site)" [disabled]="site.maxGuests <= site.currentGuests">
+      <ion-icon name="person"></ion-icon>Walk-in</button>
+    <button ion-button round outline icon-start (click)="guestReturn(site)" [disabled]="site.maxGuests <= site.currentGuests">
+      <ion-icon name="person"></ion-icon>Returning</button>
+    <h3>Check-out</h3>
+    <button ion-button round outline icon-start (click)="guestCheckOut(site)" [disabled]="site.currentGuests <= 0">
+      <ion-icon name="person"></ion-icon>Check-out</button>
+    <div *ngIf="site.maxPets > 0">
+      <hr/>
+      <h1>Pets</h1>
+      <div>
+        <span>
+          <b>Max Pets</b>
+        </span>
+        <span>{{site.maxPets}}</span>
+      </div>
+      <div>
+        <span>
+          <b>Pet Count</b>
+        </span>
+        <span>{{site.currentPets}}</span>
+      </div>
+      <button ion-button round outline icon-start (click)="petArrive(site)" [disabled]="site.maxPets <= site.currentPets">
+        <ion-icon name="paw"></ion-icon>Arrive</button>
+      <button ion-button round outline icon-start (click)="petDepart(site)" [disabled]="site.currentPets <= 0">
+        <ion-icon name="paw"></ion-icon>Depart</button>
+    </div>
+  </div>
+</ion-content>
