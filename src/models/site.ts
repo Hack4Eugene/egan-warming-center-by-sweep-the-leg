@@ -1,5 +1,7 @@
 export interface Site {
   id: string;
   uniqueGuests: number;
-  currentGuets: number;
+  currentGuests: number;
+  petLimit: number;
+  currentPets: number;
 }
