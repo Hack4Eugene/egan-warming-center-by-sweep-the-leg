@@ -26,14 +26,15 @@
   "SUPPLY_REQUESTS":[
     {
       "site":"",
-      "requested":[
+      "locationName":"",
+      "request":[
         {
-          "item":"",
-          "quatity":""
+          "itemId":"",
+          "quantity":""
         },
         {
           "item":"",
-          "quatity":""
+          "quantity":""
         }
       ]
     }
@@ -55,8 +56,7 @@
       "id":"",
       "brand":"",
       "product":"",
-      "size":"",
-      "cost?":0
+      "size":""
     }
   ]
 }

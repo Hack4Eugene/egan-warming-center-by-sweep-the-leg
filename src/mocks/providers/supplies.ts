@@ -1,41 +1,53 @@
 import { Injectable } from '@angular/core';
 
 import { Supply } from '../../models/supply';
+import { Items } from './items';
 
 @Injectable()
 export class Supplies {
   supplies: Supply[] = [];
 
-  defaultItem: any = {
-    "name": "Blankets",
-    "siteName": "First Christian",
-    "quantity": 10
-  };
+  // defaultItem: any = {
+  //   "item": Items,
+  //   "siteName": "First Christian",
+  //   "quantity": 10
+  // };
 
 
-  constructor() {
-    this.supplies = [
-      {
-        "itemName": "Blankets",
-        "siteName": "First Christian",
-        "quantity": 10
-      },
-      {
-        "itemName": "Blankets",
-        "siteName": "First Christian",
-        "quantity": 10
-      },
-      {
-        "itemName": "Blankets",
-        "siteName": "First Christian",
-        "quantity": 10
-      },
-      {
-        "itemName": "Blankets",
-        "siteName": "First Christian",
-        "quantity": 10
-      }
-    ];
+  constructor(public itemsProvider: Items) {
+    for (let item of itemsProvider.getAll())
+    {
+      this.supplies.push(
+        {
+          "item": item,
+          "siteName": "First Christian",
+          "quantity": 10
+        }
+      );
+    }
+
+    // this.supplies = [
+    //   {
+    //     "item": "Blankets",
+    //     "siteName": "First Christian",
+    //     "quantity": 10
+    //   },
+    //   {
+    //     "itemName": "Blankets",
+    //     "siteName": "First Christian",
+    //     "quantity": 10
+    //   },
+    //   {
+    //     "itemName": "Blankets",
+    //     "siteName": "First Christian",
+    //     "quantity": 10
+    //   },
+    //   {
+    //     "itemName": "Blankets",
+    //     "siteName": "First Christian",
+    //     "quantity": 10
+    //   }
+    // ];
   }
 
   query(params?: any) {
