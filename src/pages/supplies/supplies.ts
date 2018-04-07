@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Item } from '../../models/item';
 import { Items } from '../../mocks/providers/items';
+import { SupplyRequests } from '../../providers/supplyRequests/supplyRequests';
 import { Supply } from '../../models/supply';
+import { SupplyRequest } from '../../models/supplyRequest';
+
 
 /**
  * Generated class for the SuppliesPage page.
@@ -29,7 +32,11 @@ export class SuppliesPage {
     quantity: null
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public itemsProvider: Items) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public itemsProvider: Items,
+    public supplyRequests: SupplyRequests) {
     // get the items available to choose from
     this.items = itemsProvider.getAll();
 
@@ -61,6 +68,15 @@ export class SuppliesPage {
   sendRequest()
   {
     console.log("Sending request");
+
+    var request = {
+      'id': "",
+      'siteId': "Test_site_123",
+      'siteName':"Test Site",
+      'request': this.supplies
+    }
+
+    this.supplyRequests.addSupplyRequest(request);
   }
 
   cancelRequest()
