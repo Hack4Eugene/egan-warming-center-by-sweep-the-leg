@@ -8,6 +8,7 @@ import { User } from '../../models/user';
 export class Auth {
 
   user$: Observable<User>;
+  user: User;
 
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore) {
@@ -20,6 +21,7 @@ export class Auth {
             return Observable.of(null)
           }
         });
+      this.user$.subscribe(val => this.user = val);
   }
 
   login(email: string, password: string) {
@@ -30,6 +32,15 @@ export class Auth {
 
   signOut() {
     this.afAuth.auth.signOut();
+  }
+
+  getHomePage() {
+    if (this.user.roles.siteLead || this.user.roles.shiftLead) {
+      return ''
+    }
+    else {
+      return ''
+    }
   }
 
   private updateUserData(user) {
