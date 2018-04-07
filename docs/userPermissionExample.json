@@ -1,7 +1,0 @@
-{
-    "name":"John Doe",
-    "role":"admin", 
-    "custom":{
-        "REPORT": ["READ"]
-    }
-}
