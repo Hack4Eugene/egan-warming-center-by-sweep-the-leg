@@ -7,8 +7,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { Settings } from '../providers/providers';
+import { Activations } from '../providers/providers';
 import { Auth } from '../providers/providers';
-import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 
 import { AngularFireModule } from 'angularfire2';
@@ -62,7 +62,7 @@ export function provideSettings(storage: Storage) {
     MyApp
   ],
   providers: [
-    Api,
+    Activations,
     Auth,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development

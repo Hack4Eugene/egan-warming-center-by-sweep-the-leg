@@ -1,68 +1,44 @@
 import { Injectable } from '@angular/core';
 
-import { Item } from '../../models/item';
+import { Supply } from '../../models/supply';
 
 @Injectable()
 export class Supplies {
-  items: Item[] = [];
+  supplies: Supply[] = [];
 
   defaultItem: any = {
-    "name": "Burt Bear",
-    "profilePic": "assets/img/speakers/bear.jpg",
-    "about": "Burt is a Bear.",
+    "name": "Blankets",
+    "quantity": 10
   };
 
 
   constructor() {
-    let items = [
+    this.supplies = [
       {
-        "name": "Burt Bear",
-        "profilePic": "assets/img/speakers/bear.jpg",
-        "about": "Burt is a Bear."
+        "name": "Blankets",
+        "quantity": 10
       },
       {
-        "name": "Charlie Cheetah",
-        "profilePic": "assets/img/speakers/cheetah.jpg",
-        "about": "Charlie is a Cheetah."
+        "name": "Blankets",
+        "quantity": 10
       },
       {
-        "name": "Donald Duck",
-        "profilePic": "assets/img/speakers/duck.jpg",
-        "about": "Donald is a Duck."
+        "name": "Blankets",
+        "quantity": 10
       },
       {
-        "name": "Eva Eagle",
-        "profilePic": "assets/img/speakers/eagle.jpg",
-        "about": "Eva is an Eagle."
-      },
-      {
-        "name": "Ellie Elephant",
-        "profilePic": "assets/img/speakers/elephant.jpg",
-        "about": "Ellie is an Elephant."
-      },
-      {
-        "name": "Molly Mouse",
-        "profilePic": "assets/img/speakers/mouse.jpg",
-        "about": "Molly is a Mouse."
-      },
-      {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        "name": "Blankets",
+        "quantity": 10
       }
     ];
-
-    for (let item of items) {
-      this.items.push(new Item(item));
-    }
   }
 
   query(params?: any) {
     if (!params) {
-      return this.items;
+      return this.supplies;
     }
 
-    return this.items.filter((item) => {
+    return this.supplies.filter((item) => {
       for (let key in params) {
         let field = item[key];
         if (typeof field == 'string' && field.toLowerCase().indexOf(params[key].toLowerCase()) >= 0) {
@@ -75,11 +51,11 @@ export class Supplies {
     });
   }
 
-  add(item: Item) {
-    this.items.push(item);
+  add(supply: Supply) {
+    this.supplies.push(supply);
   }
 
-  delete(item: Item) {
-    this.items.splice(this.items.indexOf(item), 1);
+  delete(supply: Supply) {
+    this.supplies.splice(this.supplies.indexOf(supply), 1);
   }
 }
