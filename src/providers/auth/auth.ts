@@ -35,11 +35,18 @@ export class Auth {
   }
 
   getHomePage() {
-    if (this.user.roles.siteLead || this.user.roles.shiftLead) {
-      return ''
+    if (this.user.roles.admin)
+    {
+      return 'AdminPage'
+    }
+    else if (this.user.roles.siteLead || this.user.roles.shiftLead) {
+      return 'SitePage'
+    }
+    else if (this.user.roles.driverCoordinator || this.user.roles.driver) {
+      return 'SitePage'
     }
     else {
-      return ''
+      return 'SitePage'
     }
   }
 

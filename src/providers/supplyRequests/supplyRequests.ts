@@ -16,6 +16,10 @@ export class SupplyRequests {
     return this.db.collection<SupplyRequest>('supplyRequests').valueChanges();
   }
 
+  getActiveSupplyRequests() : Observable<SupplyRequest[]> {
+    return this.db.collection<SupplyRequest>('supplyRequests', ref => ref.where('status', '==', 'active')).valueChanges();
+  }
+
   addSupplyRequest(supplyRequest: SupplyRequest) {
     let id = this.db.createId();
     supplyRequest.id = id;

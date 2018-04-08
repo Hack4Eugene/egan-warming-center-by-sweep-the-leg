@@ -1,15 +1,19 @@
 import { Shift } from "./shift";
+import { Location } from "./location";
 
 export interface Site {
   id: string;
-  location: Location[];
+  location: Location
   siteManagers: string[];
   uniqueGuests: number;
   currentGuests: number;
-  maxGuests
+  maxGuests: number;
   maxPets: number;
   currentPets: number;
   status: string;
   shifts: Shift[];
   walkInCount: number;
+  guestCapacity: number;
+  petCapacity: number;
+  childSite: boolean;
 }
