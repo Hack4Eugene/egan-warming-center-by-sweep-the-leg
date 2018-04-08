@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ shift.name }}</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="cancel()">
+        <span color="primary" showWhen="ios">
+          {{ 'CANCEL_BUTTON' | translate }}
+        </span>
+        <ion-icon name="md-close" showWhen="core,android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="done()" strong>
+        <span color="primary" showWhen="ios">
+          {{ 'DONE_BUTTON' | translate }}
+        </span>
+        <ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngFor="let volunteer of shift.volunteers">
+    <ion-card-header>
+      {{volunteer.name}}
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col><ion-item>
+          <ion-label>{{ 'CHECKED_IN' | translate }}</ion-label>
+      <ion-checkbox color="dark" [(ngModel)]="volunteer.checkedIn"></ion-checkbox>
+        </ion-item>
+
+        </ion-col>
+        <ion-col>
+          <ion-item>
+              <ion-label>{{ 'HOURS' | translate }}</ion-label>
+              <ion-input type="number" [(ngModel)]="volunteer.hours"></ion-input>
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

@@ -2,7 +2,8 @@
   "BACK_BUTTON_TEXT": "Back",
   "SEND": "Send",
   "CANCEL": "Cancel",
-
+  "CHECKED_IN": "Checked-in",
+  "HOURS": "Hours",
   "NAME": "Name",
   "EMAIL": "Email",
   "USERNAME": "Username",
@@ -32,7 +33,6 @@
   "SIGNUP_BUTTON": "Sign up",
 
   "GUESTS_TITLE": "Guests",
-  "VOLUNTEERS_TITLE": "Volunteers",
 
   "SITE_MANAGER_HOME_TITLE": "Home",
 

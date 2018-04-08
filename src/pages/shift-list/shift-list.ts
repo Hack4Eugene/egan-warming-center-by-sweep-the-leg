@@ -2,12 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angular';
 
 import { Shift } from '../../models/Shift';
-import { Auth } from '../../providers/providers';
 import { Shifts } from '../../providers/providers';
 
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../../models/user';
 
 @IonicPage()
 @Component({
@@ -37,15 +34,12 @@ export class ShiftListPage {
    * Navigate to the detail page for this item.
    */
   updateShift(shift: Shift) {
-    let addModal = this.modalCtrl.create('ShiftDetailsPage');
-    addModal.onDidDismiss(shiftUpdate => {
+    let updateModal = this.modalCtrl.create('ShiftUpdatePage', {shift: shift});
+    updateModal.onDidDismiss(shiftUpdate => {
       if (shiftUpdate) {
         this.shifts.update(shiftUpdate);
       }
     })
-    addModal.present();
-    this.navCtrl.push('ShiftDetailPage', {
-      shift: shift
-    });
+    updateModal.present();
   }
 }
