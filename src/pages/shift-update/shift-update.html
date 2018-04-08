@@ -30,16 +30,17 @@
     </ion-card-header>
     <ion-grid>
       <ion-row>
-        <ion-col><ion-item>
-          <ion-label>{{ 'CHECKED_IN' | translate }}</ion-label>
-      <ion-checkbox color="dark" [(ngModel)]="volunteer.checkedIn"></ion-checkbox>
-        </ion-item>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ 'CHECKED_IN' | translate }}</ion-label>
+            <ion-checkbox color="secondary" [(ngModel)]="volunteer.checkedIn"></ion-checkbox>
+          </ion-item>
 
         </ion-col>
         <ion-col>
           <ion-item>
-              <ion-label>{{ 'HOURS' | translate }}</ion-label>
-              <ion-input type="number" [(ngModel)]="volunteer.hours"></ion-input>
+            <ion-label>{{ 'HOURS' | translate }}</ion-label>
+            <ion-input type="number" [(ngModel)]="volunteer.hours"></ion-input>
           </ion-item>
 
         </ion-col>

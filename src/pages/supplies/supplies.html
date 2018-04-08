@@ -41,10 +41,10 @@
   <ion-toolbar position="bottom">
     <ion-row>
       <ion-col>
-        <button ion-button class="col" [disabled]='!hasRequest' (click)='sendRequest()'>{{'SEND' | translate }}</button>
+        <button ion-button class="col" color="secondary" [disabled]='!hasRequest' (click)='sendRequest()'>{{'SEND' | translate }}</button>
       </ion-col>
       <ion-col>
-        <button ion-button class="col" (click)='cancelRequest()'>{{'CANCEL' | translate }}</button>
+        <button ion-button class="col" color="light" (click)='cancelRequest()'>{{'CANCEL' | translate }}</button>
       </ion-col>
     </ion-row>
   </ion-toolbar>
