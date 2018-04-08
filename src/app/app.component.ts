@@ -31,7 +31,8 @@ export class MyApp {
 
   pages: any[] = [
     { title: 'Home', component: 'LoginPage' },
-    { title: 'Settings', component: 'SettingsPage' }
+    { title: 'Settings', component: 'SettingsPage' },
+    { title: 'Sign Out', component: 'LoginPage' }
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private auth: Auth) {
@@ -69,6 +70,9 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     if (page.title === 'Home') {
       this.nav.setRoot(this.auth.isLoggedIn() ? this.auth.getHomePage() : 'LoginPage' )
+    }
+    else if (page.title === 'Sign Out') {
+      this.auth.signOut().then(result => this.nav.setRoot(page.component));
     }
     else {
       this.nav.setRoot(page.component);

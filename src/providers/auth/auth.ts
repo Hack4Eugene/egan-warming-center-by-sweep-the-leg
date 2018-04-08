@@ -31,7 +31,7 @@ export class Auth {
   }
 
   signOut() {
-    this.afAuth.auth.signOut();
+    return this.afAuth.auth.signOut();
   }
 
   getHomePage() {
