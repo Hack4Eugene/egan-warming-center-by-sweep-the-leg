@@ -1,0 +1,69 @@
+<!--
+  Generated template for the AdminPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'ADMIN_DASHBOARD' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h1>{{ 'NOTIFICATIONS' | translate }}</h1>
+  <ion-card *ngFor='let notification of activeNotifications$ | async'>
+    <ion-card-title>{{notification.siteName}}</ion-card-title>
+    <ion-item>{{notification.message}}</ion-item>
+  </ion-card>
+  <!--  -->
+  <h1>{{ 'SUPPLY_REQUESTS' | translate }}</h1>
+  <ion-card *ngFor='let supplyRequest of activeSupplyRequests$ | async'>
+    <ion-card-title>{{supplyRequest.siteName}}</ion-card-title>
+
+    <ion-item *ngFor="let supply of supplyRequest.request">
+      <ion-label>{{supply.item.brand}} {{supply.item.product}}<br>
+        {{supply.item.size}}{{supply.item.units}} - {{'QTY' | translate}}
+      {{supply.quantity}}</ion-label>
+    </ion-item>
+  </ion-card>
+  <!--  -->
+  <h1>{{ 'ACTIVE_SITES' | translate}}</h1>
+  <!-- <ion-card *ngFor='let site of activeSites$ | async' (click)='goToSite({{site.id}})'> -->
+  <ion-card *ngFor='let site of activeSites$ | async' (click)='goToSite(site.id)'>
+    <ion-card-title>{{site.location.name}}</ion-card-title>
+    <ion-item>
+      <ion-label>{{ 'WHEELCHAIR_ACCESS' | translate }}: {{site.location.wheelChairAccess ? 'Yes' : 'No'}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'CHILD_SITE' | translate }}: {{site.childSite ? 'Yes' : 'No'}}</ion-label>
+    </ion-item>
+    <hr>
+    <ion-item>
+      <h2>{{ 'GUEST_COUNT' | translate }}</h2>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        {{ 'CURRENT' | translate }}/{{ 'MAX' | translate }}: {{site.currentGuests}}/{{site.maxGuests}} - {{site.currentGuests/site.maxGuests*100}}%
+        of Capacity
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'WALK_INS' | translate }}: {{site.walkInCount}}</ion-label>
+    </ion-item>
+    <hr>
+    <ion-item>
+      <h2>{{ 'PET_COUNT' | translate }}</h2>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        {{ 'CURRENT' | translate }}/{{ 'MAX' | translate}}: {{site.currentPets}}/{{site.maxPets}} - {{site.currentPets/site.maxPets*100}}%
+        of Capacity
+      </ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

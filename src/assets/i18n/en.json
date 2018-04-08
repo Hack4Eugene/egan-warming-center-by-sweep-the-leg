@@ -33,8 +33,21 @@
   "SIGNUP_BUTTON": "Sign up",
 
   "GUESTS_TITLE": "Guests",
+  "VOLUNTEERS_TITLE": "Volunteers",
+  "ADMIN_DASHBOARD": "Admin Dashboard",
 
   "SITE_MANAGER_HOME_TITLE": "Home",
 
-  "SUPPLIES_TITLE": "Supplies Request"
+  "SUPPLIES_TITLE": "Supplies Request",
+  "ACTIVE_SITES":  "Active Sites",
+  "NOTIFICATIONS": "Notifications",
+  "SUPPLY_REQUESTS": "Supply Requests",
+  "WHEELCHAIR_ACCESS": "Wheelchair Access",
+  "MAX": "Max",
+  "CURRENT": "Current",
+  "GUEST_COUNT": "Guest Count",
+  "PET_COUNT": "Pet Count",
+  "WALK_INS": "Walk-Ins",
+  "CHILD_SITE": "Child Site",
+  "QTY": "qty"
 }

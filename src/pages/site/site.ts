@@ -16,7 +16,15 @@ export class SitePage {
   siteId: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private sites: Sites) {
-    this.siteDoc = sites.getDoc('KiLiaM1tAZPopU5cQ4uc');
+    console.log('here', navParams.get('siteId'));
+    if (navParams.get('siteId') !== null)
+    {
+      this.siteDoc = sites.getDoc(navParams.get('siteId'));
+    }
+    else
+    {
+      this.siteDoc = sites.getDoc('KiLiaM1tAZPopU5cQ4uc');
+    }
     this.site$ = this.siteDoc.valueChanges();
   }
 
