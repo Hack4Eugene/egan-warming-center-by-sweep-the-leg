@@ -40,13 +40,13 @@ export class Auth {
       return 'AdminPage'
     }
     else if (this.user.roles.siteLead || this.user.roles.shiftLead) {
-      return 'SitePage'
+      return 'SiteManagerHomePage'
     }
     else if (this.user.roles.driverCoordinator || this.user.roles.driver) {
-      return 'SitePage'
+      return 'SiteManagerHomePage'
     }
     else {
-      return 'SitePage'
+      return 'SiteManagerHomePage'
     }
   }
 

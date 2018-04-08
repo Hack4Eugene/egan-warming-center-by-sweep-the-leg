@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the SiteManagerHomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Sites } from '../../providers/providers';
+import { Observable } from 'rxjs/Observable';
+import { Site } from '../../models/site';
 
 @IonicPage()
 @Component({
@@ -14,11 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'site-manager-home.html',
 })
 export class SiteManagerHomePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  myActiveSites$: Observable<Site[]>;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public sites: Sites) {
+    this.myActiveSites$ = this.sites.getActiveSites();
   }
 
   ionViewDidLoad() {
+  }
+
+  openSite(siteId: string) {
+    this.navCtrl.push('SitePage', {siteId: siteId})
   }
 
 }

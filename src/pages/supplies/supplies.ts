@@ -5,14 +5,6 @@ import { Items } from '../../mocks/providers/items';
 import { SupplyRequests } from '../../providers/supplyRequests/supplyRequests';
 import { Supply } from '../../models/supply';
 
-
-/**
- * Generated class for the SuppliesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-supplies',
