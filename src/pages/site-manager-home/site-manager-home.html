@@ -9,7 +9,5 @@
 
 <ion-content padding>
   <h2>{{ 'MY_SITES' | translate }}</h2>
-  <ion-list>
-    <button ion-item *ngFor="let site of myActiveSites$ | async" (click)="openSite(site.id)" >{{site.location.name}}</button>
-  </ion-list>
+  <button ion-button round outline *ngFor="let site of myActiveSites$ | async" (click)="openSite(site.id)" >{{site.location.name}}</button>
 </ion-content>
