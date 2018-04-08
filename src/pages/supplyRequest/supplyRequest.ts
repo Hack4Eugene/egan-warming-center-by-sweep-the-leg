@@ -25,6 +25,28 @@ export class SupplyRequestPage {
   ionViewDidLoad() {
   }
 
+  deleteItem(supplyRequest: SupplyRequest, supply: Supply) {
+    // Find the supplied item and set it's status
+    var index = supplyRequest.request.indexOf(supply);
+    supplyRequest.request.splice(index, 1);
+
+    // Check if all items have been supplied
+    var complete = true;
+    for (let supply of supplyRequest.request) {
+      if (supply.status !== 'supplied') {
+        complete = false;
+        break;
+      }
+    }
+
+    // If all items have been supplied, mark request as complete
+    if (complete) {
+      supplyRequest.status = 'complete';
+    }
+
+    this.supplyRequests.update(this.supplyRequestDoc, supplyRequest)
+  }
+
   supplyItem(supplyRequest: SupplyRequest, supply: Supply) {
     // Find the supplied item and set it's status
     var index = supplyRequest.request.indexOf(supply);
@@ -46,6 +68,13 @@ export class SupplyRequestPage {
     }
 
     this.supplyRequests.update(this.supplyRequestDoc, supplyRequest)
+  }
+
+  supplyRequest(supplyRequest: SupplyRequest) {
+    for (let supply of supplyRequest.request)
+    {
+      this.supplyItem(supplyRequest, supply);
+    }
   }
 
   openSupplies(siteId: string) {

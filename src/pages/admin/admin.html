@@ -15,13 +15,15 @@
 
 <ion-content padding>
 
-  <h1>{{ 'NOTIFICATIONS' | translate }}</h1>
+  <h1 ion-text color='danger'>{{ 'NOTIFICATIONS' | translate }}</h1>
   <ion-card *ngFor='let notification of activeNotifications$ | async'>
-    <ion-card-title>{{notification.siteName}}</ion-card-title>
+    <ion-card-title>
+      <b>{{notification.siteName}}</b>
+    </ion-card-title>
     <ion-item>{{notification.message}}</ion-item>
   </ion-card>
   <!--  -->
-  <h1>{{ 'SUPPLY_REQUESTS' | translate }}</h1>
+  <h1 ion-text color='secondary'>{{ 'SUPPLY_REQUESTS' | translate }}</h1>
   <ion-card *ngFor='let supplyRequest of activeSupplyRequests$ | async' (click)='goToSupplyRequest(supplyRequest.id)'>
     <ion-card-title>
       <b>{{supplyRequest.siteName}}</b>
@@ -40,9 +42,9 @@
     </ion-item>
   </ion-card>
   <!--  -->
-  <h1>{{ 'ACTIVE_SITES' | translate}}</h1>
+  <h1 ion-text color='primary'>{{ 'ACTIVE_SITES' | translate}}</h1>
   <!-- <ion-card *ngFor='let site of activeSites$ | async' (click)='goToSite({{site.id}})'> -->
-  <ion-card *ngFor='let site of activeSites$ | async' (click)='goToSite(site.id)'>
+  <ion-card *ngFor='let site of activeSites$ | async' (click)='goToSite(site.id, site.location.name)'>
     <ion-card-title>
       <b>{{site.location.name}}</b>
     </ion-card-title>

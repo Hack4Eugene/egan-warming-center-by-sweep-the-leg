@@ -60,12 +60,11 @@ export class SuppliesPage {
 
   sendRequest()
   {
-    console.log("Sending request");
-
+    console.log("sending REquest", this.navParams.get('siteId'));
     var request = {
       'id': "",
-      'siteId': "Test_site_123",
-      'siteName':"Test Site",
+      'siteId': this.navParams.get('siteId'),
+      'siteName': this.navParams.get('siteName'),
       'request': this.supplies,
       'status': 'active'
     }

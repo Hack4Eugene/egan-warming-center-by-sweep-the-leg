@@ -51,10 +51,9 @@ export class AdminPage {
     return this.supplyRequestProvider.getActiveSupplyRequests();
   }
 
-  goToSite(siteId: string)
+  goToSite(siteId: string, siteName: string)
   {
-    console.log("going to site::", siteId);
-    this.navCtrl.push('SitePage', {siteId: siteId});
+    this.navCtrl.push('SitePage', {siteId: siteId, siteName: siteName});
   }
 
   goToSupplyRequest(supplyRequestId: string)

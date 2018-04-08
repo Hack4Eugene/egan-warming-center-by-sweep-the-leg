@@ -31,14 +31,14 @@
 
 </ion-content>
 <ion-footer no-shadow>
-  <ion-toolbar position="bottom">
+  <ion-toolbar position="bottom" *ngIf="supplyRequest$ | async; let supplyRequest">
     <ion-row>
       <ion-col></ion-col>
       <ion-col>
-        <button ion-button color="danger">{{ 'DELETE' | translate }}</button>
+        <button ion-button color="danger" (click)="deleteRequest(supplyRequest)">{{ 'DELETE' | translate }}</button>
       </ion-col>
       <ion-col>
-        <button ion-button color="secondary">{{ 'SUPPLY_ALL' | translate }}</button>
+        <button ion-button color="secondary" (click)="supplyRequest(supplyRequest)">{{ 'SUPPLY_ALL' | translate }}</button>
       </ion-col>
       <ion-col></ion-col>
     </ion-row>

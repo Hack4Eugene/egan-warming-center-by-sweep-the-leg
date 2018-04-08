@@ -56,7 +56,8 @@ export class SitePage {
   }
   openSupplies(siteId: string) {
     this.navCtrl.push('SuppliesPage', {
-      siteId: siteId
+      siteId: siteId,
+      siteName: this.navParams.get('siteName')
     });
   }
   openShifts(siteId: string) {
