@@ -56,5 +56,8 @@
   "SUPPLY_ALL": "Supply All",
   "REQUESTED": "Requested",
   "REQUEST_SUPPLIES": "Request Supplies",
-  "REQUEST_STATUS": "Request Status"
+  "REQUEST_STATUS": "Request Status",
+  "NO_ACTIVE_NOTIFICATIONS": "No Active Notifications",
+  "NO_ACTIVE_SUPPLY_REQUESTS": "No Active Supply Requests",
+  "NO_ACTIVE_SITES": "No Active Sites"
 }

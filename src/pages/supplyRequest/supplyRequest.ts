@@ -13,6 +13,7 @@ import { Supply } from '../../models/supply';
   templateUrl: 'supplyRequest.html',
 })
 export class SupplyRequestPage {
+  complete: boolean;
   supplyRequestDoc: AngularFirestoreDocument<SupplyRequest>;
   supplyRequest$: Observable<SupplyRequest>;
   supplyRequestId: string;
@@ -20,6 +21,8 @@ export class SupplyRequestPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private supplyRequests: SupplyRequests) {
     this.supplyRequestDoc = supplyRequests.getDoc(navParams.get('supplyRequestId'));
     this.supplyRequest$ = this.supplyRequestDoc.valueChanges();
+
+    this.complete = false;
   }
 
   ionViewDidLoad() {
@@ -31,16 +34,16 @@ export class SupplyRequestPage {
     supplyRequest.request.splice(index, 1);
 
     // Check if all items have been supplied
-    var complete = true;
+    this.complete = true;
     for (let supply of supplyRequest.request) {
       if (supply.status !== 'supplied') {
-        complete = false;
+        this.complete = false;
         break;
       }
     }
 
     // If all items have been supplied, mark request as complete
-    if (complete) {
+    if (this.complete) {
       supplyRequest.status = 'complete';
     }
 
@@ -54,27 +57,35 @@ export class SupplyRequestPage {
     supplyRequest.request.splice(index, 1, supply);
 
     // Check if all items have been supplied
-    var complete = true;
+    this.complete = true;
     for (let supply of supplyRequest.request) {
       if (supply.status !== 'supplied') {
-        complete = false;
+        this.complete = false;
         break;
       }
     }
 
     // If all items have been supplied, mark request as complete
-    if (complete) {
+    if (this.complete) {
       supplyRequest.status = 'complete';
     }
 
     this.supplyRequests.update(this.supplyRequestDoc, supplyRequest)
   }
 
-  supplyRequest(supplyRequest: SupplyRequest) {
-    for (let supply of supplyRequest.request)
-    {
+  deleteRequest(supplyRequest: SupplyRequest) {
+    this.supplyRequests.delete(supplyRequest.id);
+  }
+
+  completeRequest(supplyRequest: SupplyRequest) {
+    for (let supply of supplyRequest.request) {
       this.supplyItem(supplyRequest, supply);
     }
+  }
+
+  isComplete()
+  {
+    return this.complete;
   }
 
   openSupplies(siteId: string) {
