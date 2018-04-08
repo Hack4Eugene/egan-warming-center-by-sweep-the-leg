@@ -20,10 +20,7 @@ export class SitePage {
     {
       this.siteDoc = sites.getDoc(navParams.get('siteId'));
     }
-    else
-    {
-      this.siteDoc = sites.getDoc('KiLiaM1tAZPopU5cQ4uc');
-    }
+
     this.site$ = this.siteDoc.valueChanges();
   }
 
