@@ -2,6 +2,6 @@ export interface Item {
   id: string,
   brand: string,
   product: string,
-  qty: number,
+  size: number,
   units: string
 }

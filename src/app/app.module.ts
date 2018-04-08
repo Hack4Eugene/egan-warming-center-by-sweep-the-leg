@@ -6,7 +6,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
-import { Settings } from '../providers/providers';
+import { Settings, Notifications } from '../providers/providers';
 import { Shifts } from '../providers/providers';
 import { Sites } from '../providers/providers';
 import { Items } from '../providers/providers';
@@ -68,9 +68,10 @@ export function provideSettings(storage: Storage) {
   providers: [
     Activations,
     Auth,
+    Items,
+    Notifications,
     Shifts,
     Sites,
-    Items,
     SupplyRequests,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development

@@ -3,7 +3,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { Auth } from '../../providers/providers';
-import { MainPage } from '../pages';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -38,7 +37,7 @@ export class LoginPage {
   // Attempt to login in through our User service
   doLogin() {
     this.auth.login(this.account.email, this.account.password).then((resp) => {
-      this.navCtrl.setRoot(MainPage);
+      this.navCtrl.setRoot(this.auth.getHomePage());
     }, (err) => {
       // Unable to log in
       let toast = this.toastCtrl.create({
