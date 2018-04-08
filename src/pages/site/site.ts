@@ -27,38 +27,52 @@ export class SitePage {
   ionViewDidLoad() {
   }
 
+  // Check in a scheduled guest, and update unique and current counts
   checkInReservation(site: Site) {
     site.uniqueGuests += 1;
     site.currentGuests += 1;
     this.sites.update(this.siteDoc, site);
   }
+  // Check in a walk-in guest, and update unique, current, and walk-in counts
   checkInWalkIn(site: Site) {
     site.uniqueGuests += 1;
     site.currentGuests += 1;
     site.walkInCount += 1;
     this.sites.update(this.siteDoc, site);
   }
+
+  // Check in a guest who checked-out and came back, increment current count.
   guestReturn(site: Site) {
     site.currentGuests += 1;
     this.sites.update(this.siteDoc, site);
   }
+
+  // Check out a guest, decrement current count
   guestCheckOut(site: Site) {
     site.currentGuests -= 1;
     this.sites.update(this.siteDoc, site);
   }
+
+  // Check in a pet, increment the pet counter
   petArrive(site: Site) {
     site.currentPets += 1;
     this.sites.update(this.siteDoc, site);
   }
+
+  // Check out a pet, decrement pet counter
   petDepart(site: Site) {
     site.currentPets -= 1;
     this.sites.update(this.siteDoc, site);
   }
+
+  // Open the supplies page for this site
   openSupplies(siteId: string) {
     this.navCtrl.push('SuppliesPage', {
       siteId: siteId
     });
   }
+
+  // Open the shifts page for this site
   openShifts(siteId: string) {
     this.navCtrl.push('ShiftListPage', {
       siteId: siteId

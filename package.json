@@ -1,7 +1,7 @@
 {
     "name": "warming-center",
     "version": "0.0.1",
-    "author": "Joseph P. Mohr & Bryan Adams",
+    "author": "Joseph Mohr & Bryan Adams",
     "homepage": "https://www.josephpmohr.com/",
     "private": true,
     "scripts": {
@@ -35,5 +35,5 @@
         "@ionic/app-scripts": "3.1.8",
         "typescript": "2.4.2"
     },
-    "description": "Warming Center project with Firebase"
+    "description": "Warming Center project with Ionic and Firebase"
 }
