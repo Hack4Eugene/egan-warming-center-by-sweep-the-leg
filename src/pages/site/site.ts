@@ -16,8 +16,7 @@ export class SitePage {
   siteId: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private sites: Sites) {
-    console.log('here', navParams.get('siteId'));
-    if (navParams.get('siteId') !== null)
+    if (navParams.get('siteId'))
     {
       this.siteDoc = sites.getDoc(navParams.get('siteId'));
     }

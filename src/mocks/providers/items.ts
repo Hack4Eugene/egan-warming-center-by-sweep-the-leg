@@ -10,7 +10,7 @@ export class Items {
     "id": "garbage_bag_60ct",
     "brand": "Hefty",
     "product": "Tall Kitchen Bags",
-    "qty": 60,
+    "size": 60,
     "units": "count"
 };
 
@@ -21,21 +21,21 @@ export class Items {
         "id": "garbage_bag_60ct",
         "brand": "Hefty",
         "product": "Tall Kitchen Bags",
-        "qty": 60,
+        "size": 60,
         "units": "count"
     },
     {
         "id": "pancake_mix_60oz",
         "brand": "Krusty's",
         "product": "Pancake Mix",
-        "qty": 64,
+        "size": 64,
         "units": "oz"
     },
     {
         "id": "bandage_large_square",
         "brand": "Band-Aid",
         "product": "Large Square Bandage",
-        "qty": 24,
+        "size": 24,
         "units":"count"
     }
     ]
