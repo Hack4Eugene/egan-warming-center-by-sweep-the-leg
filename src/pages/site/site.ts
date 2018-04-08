@@ -68,7 +68,8 @@ export class SitePage {
   // Open the supplies page for this site
   openSupplies(siteId: string) {
     this.navCtrl.push('SuppliesPage', {
-      siteId: siteId
+      siteId: siteId,
+      siteName: this.navParams.get('siteName')
     });
   }
 

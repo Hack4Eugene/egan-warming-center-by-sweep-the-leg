@@ -20,7 +20,8 @@ export class SuppliesPage {
   supply: Supply = {
     item: null,
     siteName: "",
-    quantity: null
+    quantity: null,
+    status: ""
   };
 
   constructor(
@@ -43,6 +44,7 @@ export class SuppliesPage {
 
   addSupply()
   {
+    this.supply.status = 'requested';
     this.supplies.push(this.supply);
     this.resetSupply();
     this.setHasRequest();
@@ -58,13 +60,13 @@ export class SuppliesPage {
 
   sendRequest()
   {
-    console.log("Sending request");
-
+    console.log("sending REquest", this.navParams.get('siteId'));
     var request = {
       'id': "",
-      'siteId': "Test_site_123",
-      'siteName':"Test Site",
-      'request': this.supplies
+      'siteId': this.navParams.get('siteId'),
+      'siteName': this.navParams.get('siteName'),
+      'request': this.supplies,
+      'status': 'active'
     }
 
     this.supplyRequests.addSupplyRequest(request);
@@ -102,7 +104,8 @@ export class SuppliesPage {
     this.supply = {
       item: null,
       siteName: "",
-      quantity: null
+      quantity: null,
+      status: ""
     };
 
   }
@@ -114,7 +117,6 @@ export class SuppliesPage {
 
   checkItemComplete()
   {
-    console.log("set item complete", this.supply.item, this.supply.quantity);
     this.isItemComplete = this.supply.quantity > 0 && this.supply.item != null;
   }
 }
