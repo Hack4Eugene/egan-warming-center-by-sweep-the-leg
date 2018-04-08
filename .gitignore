@@ -36,3 +36,5 @@ UserInterfaceState.xcuserstate
 
 # Keep config out of source control
 src/environment.ts
+.firebaserc
+firebase.json
