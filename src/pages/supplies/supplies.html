@@ -15,9 +15,12 @@
     <ion-label>
       {{supply.quantity}}
     </ion-label>
-    <button item-right clear (click)='removeSupply(supply)'>
+    <button ion-fab mini item-right color="danger" (click)='removeSupply(supply)'>
+        <ion-icon clear name="trash"></ion-icon>
+      </button>
+    <!-- <button item-right clear (click)='removeSupply(supply)'>
       <ion-icon name="close-circle"></ion-icon>
-    </button>
+    </button> -->
   </ion-item>
 
   <div *ngIf='hasRequest'>
@@ -31,19 +34,19 @@
     <ion-select #Qty [placeholder]="'Qty'" (ionChange)="selectQuantity(Qty.value)" [(ngModel)]='supply.quantity'>
       <ion-option *ngFor="let n of qty" [value]="n">{{n}}</ion-option>
     </ion-select>>
-    <button item-right clear [disabled]='!isItemComplete' (click)='addSupply()'>
-      <ion-icon name="add"></ion-icon>
-    </button>
+    <button ion-fab mini item-right color="secondary" [disabled]='!isItemComplete' (click)='addSupply()'>
+        <ion-icon name="add"></ion-icon>
+      </button>
   </ion-item>
 </ion-content>
 <ion-footer no-shadow>
   <ion-toolbar position="bottom">
     <ion-row>
       <ion-col>
-        <button ion-button class="col" color="secondary" [disabled]='!hasRequest' (click)='sendRequest()'>{{'SEND' | translate }}</button>
+        <button ion-button class="col" color="light" (click)='cancelRequest()'>{{'CANCEL' | translate }}</button>
       </ion-col>
       <ion-col>
-        <button ion-button class="col" color="light" (click)='cancelRequest()'>{{'CANCEL' | translate }}</button>
+        <button ion-button class="col" color="secondary" [disabled]='!hasRequest' (click)='sendRequest()'>{{'SEND' | translate }}</button>
       </ion-col>
     </ion-row>
   </ion-toolbar>

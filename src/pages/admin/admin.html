@@ -14,56 +14,81 @@
 
 
 <ion-content padding>
-
-  <h1>{{ 'NOTIFICATIONS' | translate }}</h1>
+  <!-- <span>
+    <h1 ion-text color="light" style="background-color: #4e3d4a">{{ 'NOTIFICATIONS' | translate }}</h1>
+  </span>
   <ion-card *ngFor='let notification of activeNotifications$ | async'>
-    <ion-card-title>{{notification.siteName}}</ion-card-title>
+    <ion-card-title>
+      <b>{{notification.siteName}}</b>
+    </ion-card-title>
     <ion-item>{{notification.message}}</ion-item>
-  </ion-card>
+  </ion-card> -->
   <!--  -->
-  <h1>{{ 'SUPPLY_REQUESTS' | translate }}</h1>
-  <ion-card *ngFor='let supplyRequest of activeSupplyRequests$ | async'>
-    <ion-card-title>{{supplyRequest.siteName}}</ion-card-title>
-
+  <h1 ion-text color="light" style="background-color: #4e3d4a">{{ 'SUPPLY_REQUESTS' | translate }}</h1>
+  <ion-card *ngFor='let supplyRequest of activeSupplyRequests$ | async' (click)='goToSupplyRequest(supplyRequest.id)'>
+    <ion-card-title>
+      <b>{{supplyRequest.siteName}}</b>
+      <br>
+    </ion-card-title>
+    <h2>
+      <b>{{ 'REQUEST_STATUS' | translate }}: {{supplyRequest.status}}</b>
+    </h2>
     <ion-item *ngFor="let supply of supplyRequest.request">
-      <ion-label>{{supply.item.brand}} {{supply.item.product}}<br>
-        {{supply.item.size}}{{supply.item.units}} - {{'QTY' | translate}}
-      {{supply.quantity}}</ion-label>
+      <ion-label>{{supply.item.brand}} {{supply.item.product}} - {{supply.item.size}}{{supply.item.units}}
+        <ion-row>
+          <ion-col>{{'QTY' | translate}} {{supply.quantity}}</ion-col>
+          <ion-col>{{ 'STATUS' | translate }}: {{supply.status}}</ion-col>
+        </ion-row>
+      </ion-label>
     </ion-item>
   </ion-card>
   <!--  -->
-  <h1>{{ 'ACTIVE_SITES' | translate}}</h1>
-  <!-- <ion-card *ngFor='let site of activeSites$ | async' (click)='goToSite({{site.id}})'> -->
-  <ion-card *ngFor='let site of activeSites$ | async' (click)='goToSite(site.id)'>
-    <ion-card-title>{{site.location.name}}</ion-card-title>
+  <h1 ion-text color="light" style="background-color: #4e3d4a">{{ 'ACTIVE_SITES' | translate}}</h1>
+  <ion-card *ngFor='let site of activeSites$ | async' (click)='goToSite(site.id, site.location.name)'>
+    <ion-card-title>
+      <b>{{site.location.name}}</b>
+    </ion-card-title>
     <ion-item>
-      <ion-label>{{ 'WHEELCHAIR_ACCESS' | translate }}: {{site.location.wheelChairAccess ? 'Yes' : 'No'}}</ion-label>
+      <span>
+        <b>{{ 'WHEELCHAIR_ACCESS' | translate }}:</b>
+      </span>
+      {{site.location.wheelChairAccess ? 'Yes' : 'No'}}
     </ion-item>
     <ion-item>
-      <ion-label>{{ 'CHILD_SITE' | translate }}: {{site.childSite ? 'Yes' : 'No'}}</ion-label>
-    </ion-item>
-    <hr>
-    <ion-item>
-      <h2>{{ 'GUEST_COUNT' | translate }}</h2>
-    </ion-item>
-    <ion-item>
-      <ion-label>
-        {{ 'CURRENT' | translate }}/{{ 'MAX' | translate }}: {{site.currentGuests}}/{{site.maxGuests}} - {{site.currentGuests/site.maxGuests*100}}%
-        of Capacity
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>{{ 'WALK_INS' | translate }}: {{site.walkInCount}}</ion-label>
+      <span>
+        <b>{{ 'CHILD_SITE' | translate }}:</b>
+      </span>
+      {{site.childSite ? 'Yes' : 'No'}}
     </ion-item>
     <hr>
     <ion-item>
-      <h2>{{ 'PET_COUNT' | translate }}</h2>
+      <h1>
+        <b>{{ 'GUEST_COUNT' | translate }}</b>
+      </h1>
     </ion-item>
     <ion-item>
-      <ion-label>
-        {{ 'CURRENT' | translate }}/{{ 'MAX' | translate}}: {{site.currentPets}}/{{site.maxPets}} - {{site.currentPets/site.maxPets*100}}%
-        of Capacity
-      </ion-label>
+      <span>
+        <b>{{ 'CURRENT' | translate }}/{{ 'MAX' | translate }}: </b>
+        {{site.currentGuests}}/{{site.maxGuests}}
+        <br>&nbsp;&nbsp;- {{site.currentGuests/site.maxGuests | percent}} of Capacity
+      </span>
+    </ion-item>
+    <ion-item>
+      <span>
+        <b>{{ 'WALK_INS' | translate }}:</b> {{site.walkInCount}}</span>
+    </ion-item>
+    <hr>
+    <ion-item>
+      <h1>
+        <b>{{ 'PET_COUNT' | translate }}</b>
+      </h1>
+    </ion-item>
+    <ion-item>
+      <span>
+        <b>{{ 'CURRENT' | translate }}/{{ 'MAX' | translate}}:</b>
+        {{site.currentPets}}/{{site.maxPets}}
+        <br>&nbsp;&nbsp;- {{site.currentPets/site.maxPets | percent}} of Capacity
+      </span>
     </ion-item>
   </ion-card>
 </ion-content>

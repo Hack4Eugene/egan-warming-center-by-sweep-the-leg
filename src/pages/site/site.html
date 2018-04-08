@@ -10,10 +10,10 @@
 <ion-content padding>
   <div *ngIf="site$ | async; let site">
     <button ion-button (click)="openSupplies(site.id)">
-      <ion-icon name="logo-dropbox"></ion-icon>&nbsp;Supplies
+      <ion-icon name="logo-dropbox"></ion-icon>&nbsp;{{ 'REQUEST_SUPPLIES' | translate}}
     </button>
     <button ion-button (click)="openShifts(site.id)">
-      <ion-icon name="clock"></ion-icon>&nbsp;Shifts
+      <ion-icon name="clock"></ion-icon>&nbsp;{{ 'SHIFTS' | translate}}
     </button>
     <hr/>
     <h1>Guests</h1>

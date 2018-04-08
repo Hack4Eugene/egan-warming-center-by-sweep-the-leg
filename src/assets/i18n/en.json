@@ -33,9 +33,10 @@
 
   "SITE_MANAGER_HOME_TITLE": "Home",
 
-  "SUPPLIES_TITLE": "Supplies Request",
+  "SUPPLIES_TITLE": "Request Supplies",
   "ACTIVE_SITES":  "Active Sites",
   "NOTIFICATIONS": "Notifications",
+  "SUPPLY_REQUEST": "Supply Request",
   "SUPPLY_REQUESTS": "Supply Requests",
   "WHEELCHAIR_ACCESS": "Wheelchair Access",
   "MAX": "Max",
@@ -45,5 +46,13 @@
   "PET_COUNT": "Pet Count",
   "WALK_INS": "Walk-Ins",
   "CHILD_SITE": "Child Site",
-  "QTY": "qty"
+  "QTY": "qty",
+  "LOCATION": "Location",
+  "SUPPLY_ALL": "Supply All",
+  "REQUESTED": "Requested",
+  "REQUEST_SUPPLIES": "Request Supplies",
+  "REQUEST_STATUS": "Request Status",
+  "NO_ACTIVE_NOTIFICATIONS": "No Active Notifications",
+  "NO_ACTIVE_SUPPLY_REQUESTS": "No Active Supply Requests",
+  "NO_ACTIVE_SITES": "No Active Sites"
 }
