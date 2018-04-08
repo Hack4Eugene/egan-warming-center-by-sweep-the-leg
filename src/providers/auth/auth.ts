@@ -50,6 +50,10 @@ export class Auth {
     }
   }
 
+  isLoggedIn() {
+    return this.afAuth.auth.currentUser != null;
+  }
+
   private updateUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const data: User = {

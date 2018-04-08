@@ -1,4 +1,5 @@
 {
+  "ADMIN": "Admin",
   "BACK_BUTTON_TEXT": "Back",
   "SEND": "Send",
   "CANCEL": "Cancel",
@@ -16,14 +17,8 @@
   "TAB3_TITLE": "Supplies",
 
   "SETTINGS_TITLE": "Settings",
-  "SETTINGS_OPTION1": "Option 1",
-  "SETTINGS_OPTION2": "Option 2",
-  "SETTINGS_OPTION3": "Option 3",
-  "SETTINGS_OPTION4": "Option 4",
-
-  "SETTINGS_PROFILE_BUTTON": "Edit Profile",
-
-  "SETTINGS_PAGE_PROFILE": "Edit Profile",
+  "SETTINGS_DEFAULT_HOME": "Default Home Page",
+  "SITE_MANAGER": "Site Lead",
 
   "LOGIN_TITLE": "Sign in",
   "LOGIN_ERROR": "Unable to sign in. Please check your account information and try again.",

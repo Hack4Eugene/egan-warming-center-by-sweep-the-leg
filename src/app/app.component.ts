@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
 
 import { FirstRunPage } from '../pages/pages';
-import { Settings } from '../providers/providers';
+import { Settings, Auth } from '../providers/providers';
 
 @Component({
   template: `<ion-menu [content]="content">
@@ -30,10 +30,11 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Settings', component: 'SettingsPage' },
+    { title: 'Home', component: 'LoginPage' },
+    { title: 'Settings', component: 'SettingsPage' }
   ]
 
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config) {
+  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private auth: Auth) {
     this.initTranslate();
   }
 
@@ -66,6 +67,11 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    if (page.title === 'Home') {
+      this.nav.setRoot(this.auth.isLoggedIn() ? this.auth.getHomePage() : 'LoginPage' )
+    }
+    else {
+      this.nav.setRoot(page.component);
+    }
   }
 }
