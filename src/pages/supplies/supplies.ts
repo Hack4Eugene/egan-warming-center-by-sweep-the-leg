@@ -66,7 +66,8 @@ export class SuppliesPage {
       'id': "",
       'siteId': "Test_site_123",
       'siteName':"Test Site",
-      'request': this.supplies
+      'request': this.supplies,
+      'status': 'active'
     }
 
     this.supplyRequests.addSupplyRequest(request);

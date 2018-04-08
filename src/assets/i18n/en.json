@@ -38,7 +38,7 @@
 
   "SITE_MANAGER_HOME_TITLE": "Home",
 
-  "SUPPLIES_TITLE": "Supplies Request",
+  "SUPPLIES_TITLE": "Request Supplies",
   "ACTIVE_SITES":  "Active Sites",
   "NOTIFICATIONS": "Notifications",
   "SUPPLY_REQUEST": "Supply Request",
@@ -53,5 +53,8 @@
   "CHILD_SITE": "Child Site",
   "QTY": "qty",
   "LOCATION": "Location",
-  "SUPPLY_ALL": "Supply All"
+  "SUPPLY_ALL": "Supply All",
+  "REQUESTED": "Requested",
+  "REQUEST_SUPPLIES": "Request Supplies",
+  "REQUEST_STATUS": "Request Status"
 }

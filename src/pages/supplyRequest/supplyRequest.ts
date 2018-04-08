@@ -25,21 +25,28 @@ export class SupplyRequestPage {
   ionViewDidLoad() {
   }
 
-  supplyItem(supplyRequest: SupplyRequest, supply: Supply)
-  {
-    console.log("supply request doc", this.supplyRequest$);
-
+  supplyItem(supplyRequest: SupplyRequest, supply: Supply) {
+    // Find the supplied item and set it's status
     var index = supplyRequest.request.indexOf(supply);
     supply.status = 'supplied';
     supplyRequest.request.splice(index, 1, supply);
-    console.log("found the index at :: " + index, supplyRequest.request, supply);
+
+    // Check if all items have been supplied
+    var complete = true;
+    for (let supply of supplyRequest.request) {
+      if (supply.status !== 'supplied') {
+        complete = false;
+        break;
+      }
+    }
+
+    // If all items have been supplied, mark request as complete
+    if (complete) {
+      supplyRequest.status = 'complete';
+    }
+
     this.supplyRequests.update(this.supplyRequestDoc, supplyRequest)
   }
-
-  // petArrive(site: Site) {
-  //   site.currentPets += 1;
-  //   this.sites.update(this.siteDoc, site);
-  // }
 
   openSupplies(siteId: string) {
     this.navCtrl.push('SuppliesPage', {
