@@ -56,4 +56,10 @@ export class AdminPage {
     console.log("going to site::", siteId);
     this.navCtrl.push('SitePage', {siteId: siteId});
   }
+
+  goToSupplyRequest(supplyRequestId: string)
+  {
+    console.log("going to site::", supplyRequestId);
+    this.navCtrl.push('SupplyRequestPage', {supplyRequestId: supplyRequestId});
+  }
 }

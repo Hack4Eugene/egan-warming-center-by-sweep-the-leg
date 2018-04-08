@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'SUPPLY_REQUEST' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="supplyRequest$ | async; let supplyRequest">
+    <h2>{{supplyRequest.siteName}}</h2>
+    <ion-list>
+      <ion-item-sliding *ngFor='let supply of supplyRequest.request'>
+        <!-- <div *ngIf="supply.status !== 'supplied'"> -->
+          <ion-item>
+            {{supply.item.brand}} {{supply.item.product}} {{supply.item.size}}{{supply.item.units}}
+            <!-- <br>  -->
+            <ion-row>
+              <ion-col>Requested: {{supply.quantity}}</ion-col>
+              <ion-col>Status: {{supply.status}}</ion-col>
+            </ion-row>
+          </ion-item>
+          <ion-item-options side="left" *ngIf="supply.status !== 'supplied'">
+            <button ion-button (click)="supplyItem(supplyRequest, supply)">Supplied</button>
+          </ion-item-options>
+          <ion-item-options side="right" *ngIf="supply.status !== 'supplied'">
+            <button ion-button color='danger' (click)="deleteItem(supplyRequest, supply)">Delete</button>
+          </ion-item-options>
+        <!-- </div> -->
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+</ion-content>
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom">
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <button ion-button color="danger">{{ 'DELETE' | translate }}</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="secondary">{{ 'SUPPLY_ALL' | translate }}</button>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

@@ -22,13 +22,13 @@
   </ion-card>
   <!--  -->
   <h1>{{ 'SUPPLY_REQUESTS' | translate }}</h1>
-  <ion-card *ngFor='let supplyRequest of activeSupplyRequests$ | async'>
+  <ion-card *ngFor='let supplyRequest of activeSupplyRequests$ | async' (click)='goToSupplyRequest(supplyRequest.id)'>
     <ion-card-title>{{supplyRequest.siteName}}</ion-card-title>
 
     <ion-item *ngFor="let supply of supplyRequest.request">
-      <ion-label>{{supply.item.brand}} {{supply.item.product}}<br>
-        {{supply.item.size}}{{supply.item.units}} - {{'QTY' | translate}}
-      {{supply.quantity}}</ion-label>
+      <ion-label>{{supply.item.brand}} {{supply.item.product}}
+        <ion-row>{{supply.item.size}}{{supply.item.units}} - {{'QTY' | translate}}
+      {{supply.quantity}}</ion-row></ion-label>
     </ion-item>
   </ion-card>
   <!--  -->

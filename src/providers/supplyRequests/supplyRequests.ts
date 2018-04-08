@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { SupplyRequest } from '../../models/supplyRequest';
 
@@ -28,6 +28,28 @@ export class SupplyRequests {
 
   deleteSupplyRequest(supplyRequestId: string) {
     this.supplyRequestsCollection.doc<SupplyRequest>(supplyRequestId).delete();
+  }
+
+  getDoc(requestId: string) {
+    return this.db.doc<SupplyRequest>(`supplyRequests/${requestId}`);
+  }
+
+  get(requestId: string) {
+    return this.db.doc<SupplyRequest>(`supplyRequests/${requestId}`).valueChanges();
+  }
+
+  add(supplyRequest: SupplyRequest) {
+    let id = this.db.createId();
+    supplyRequest.id = id;
+    this.supplyRequestsCollection.doc(id).set(supplyRequest);
+  }
+
+  delete(requestId: string) {
+    this.supplyRequestsCollection.doc<SupplyRequest>(requestId).delete();
+  }
+
+  update(supplyRequestDoc: AngularFirestoreDocument<SupplyRequest>, supplyRequest: SupplyRequest) {
+    supplyRequestDoc.update(supplyRequest);
   }
 
 }
